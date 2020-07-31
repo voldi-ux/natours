@@ -1,0 +1,105 @@
+.popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba($color: #000000, $alpha: 0.8);
+  z-index: 50000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s;
+  &:target {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:target &_content {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &_content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    width: 75%;
+    display: table;
+    border-radius: 3px;
+    background: #fff;
+    overflow: hidden;
+    transition: all 0.3s 0.2s;
+
+    @include responsive(tablet) {
+      display: block;
+      overflow-y: auto;
+      
+    }
+
+    @include responsive(phone) {
+      width: 100%;
+      }
+  }
+
+  &_img {
+    width: 100%;
+    // height: 100%;
+    display: block;
+    @include responsive(tablet) {
+      width: 49%;
+      display: inline-block;
+     
+    }
+  }
+
+  &_left {
+    width: 33.33%;
+    display: table-cell;
+  vertical-align: middle;
+    @include responsive(tablet) {
+      width: 100%;
+    }
+    @include responsive(phone) {
+    display: none;
+    }
+  }
+
+  &_right {
+    width: 66.667%;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 5rem 3rem;
+
+    @include responsive(tablet) {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &_paragraph {
+    column-count: 2;
+    column-gap: 4rem;
+    column-rule: 1px solid #777;
+    font-size: 1.6rem;
+    @include responsive(phone) {
+      column-count: 1;
+      }
+  }
+
+  &_close {
+    &:link,
+    &:visited {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      line-height: 1;
+      text-decoration: none;
+      font-size: 2.5rem;
+      transition: 0.4s all;
+      color: #777;
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+}

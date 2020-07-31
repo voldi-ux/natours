@@ -1,0 +1,119 @@
+.form {
+  width: 50%;
+  @include responsive(tablet) {
+    width: 100% !important;
+    transform: skewX(0);
+  }
+
+  &-control {
+    color: inherit;
+
+    &_radio {
+      display: inline-block;
+      padding: 20rem;
+    
+
+      &_lable {
+        cursor: pointer;
+        font-size: 1.6rem;
+        padding: 1rem 4rem;
+        position: relative;
+        margin-bottom: 3rem;
+
+        @include responsive(phone) {
+          width: 100%;
+          display:block;
+          }
+        
+        span {
+          width: 3rem;
+          height: 3rem;
+          display: inline-block;
+          border-radius: 50%;
+          border: 5px solid $color-primary;
+          position: absolute;
+          top: 0.5rem;
+          left: 0;
+
+          &::after {
+            content: "";
+            width: 1.5rem;
+            height: 1.5rem;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            opacity: 0;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: $color-secondary;
+            transition: opacity 0.3s;
+          }
+        }
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 3rem;
+    }
+    &_lable {
+      margin-left: 2rem;
+      font-size: 1.4rem;
+      margin-top: 1rem;
+      display: block;
+      transition: 0.4s all;
+    }
+    &_input {
+      width: 80%;
+      display: block;
+      padding: 1.5rem 2rem;
+      border: none;
+      border-bottom: 3px solid transparent;
+      background-color: rgba(255, 255, 255, 0.5);
+      transition: all 0.4s;
+      &_radio {
+        display: none;
+
+        &:checked + label span::after {
+          opacity: 1;
+        }
+      }
+      &:valid {
+        border-bottom: 3px solid $color-primary;
+      }
+      &:invalid {
+        border-bottom: 3px solid $color-yellow-dark;
+      }
+      &:focus {
+        outline: none;
+        border-bottom: 3px solid $color-primary;
+      }
+      &::placeholder {
+        font-size: 0.1.4rem;
+        font-family: inherit;
+      }
+
+      @include responsive(tablet) {
+        width: 100% !important;
+       
+      }
+
+      // &_radio:checked {}
+    }
+    &_input:placeholder-shown + &_lable {
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-4.5rem);
+    }
+  }
+}
+
+.radios {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+  padding: 1rem 5rem;
+
+  @include responsive(phone) {
+    display:block;
+    }
+}

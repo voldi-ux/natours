@@ -1,0 +1,28 @@
+//phone 0px -600px
+//tablet 600px 900px
+// tablet-landscape 900px 1080px
+//large-screens
+
+@mixin responsive($type) {
+    @if($type == phone) {
+        @media(max-width: 600px) {
+            @content
+        }
+    };
+    @if($type == tablet) {
+        @media(max-width: 900px) {
+            @content
+        }
+    };
+    @if($type == tablet-landscape) {
+        @media(max-width: 1200px) {
+            @content
+        }
+    };
+    @if($type == large-screen) {
+        @media(min-width: 1080px) {
+            @content
+        }
+    }
+
+}

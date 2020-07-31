@@ -1,0 +1,57 @@
+.stacked-img {
+  position: relative;
+  img {
+    transition: 0.2s all;
+    width: 55%;
+    position: absolute;
+    cursor: pointer;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    outline-offset: 1rem;
+    &:hover {
+      transform: scale(1.001) translateY(-2px);
+      z-index: 20;
+      outline: 1rem solid $color-primary;
+      -webkit-transform: scale(1.1) translateY(-4px);
+      -moz-transform: scale(1.1) translateY(-4px);
+      -ms-transform: scale(1.1) translateY(-4px);
+      -o-transform: scale(1.1) translateY(-4px);
+    }
+  }
+
+  &_img-2 {
+    right: 1rem;
+    top: 6rem;
+  }
+  &_img-3 {
+    top: -1rem;
+    left: 10%;
+  }
+  &_img-1 {
+    top: 5rem;
+    left: 0;
+  }
+
+  &:hover img:not(:hover) {
+    transform: scale(0.9);
+  }
+
+  @include responsive(tablet) {
+    img {
+      width: 35%;
+    }
+    &_img-2 {
+      right: 1rem;
+      top: 3rem;
+    }
+    &_img-3 {
+      top: -1rem;
+      left:32%;
+    }
+    &_img-1 {
+      top: 3rem;
+      left: 0;
+    }
+    // //
+  }
+}

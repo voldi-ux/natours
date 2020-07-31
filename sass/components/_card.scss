@@ -1,0 +1,234 @@
+.card {
+  perspective: 100rem;
+  background: #fff;
+  position: relative;
+
+  height: 50rem;
+
+  &_side {
+    height: 30rem;
+    transition: 1s all ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    height: 50rem;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+
+    &_front {
+      z-index: 20;
+      &_img {
+        padding: 4rem;
+        height: 20rem;
+        background-blend-mode: screen;
+        clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        &-1 {
+          background-image: linear-gradient(
+              to right,
+              $color-yellow-light,
+              $color-yellow-dark
+            ),
+            url(../img/nat-4.jpg);
+          background-size: cover;
+        }
+        &-2 {
+          background-image: linear-gradient(
+              to right,
+              $color-primary,
+              $color-secondary
+            ),
+            url(../img/nat-5.jpg);
+          background-size: cover;
+        }
+        &-3 {
+          background-image: linear-gradient(
+              to right,
+              $color-blue-light,
+              $color-blue-dark
+            ),
+            url(../img/hero.jpg);
+          background-size: cover;
+        }
+      }
+      &_heading {
+        font-size: 2.5rem;
+        color: #fff;
+        text-transform: uppercase;
+        text-align: right;
+        position: absolute;
+        width: 60%;
+        top: 25%;
+        right: 0;
+        &-1 {
+          padding: 0.5rem 1rem;
+          background-image: linear-gradient(
+            to right,
+            $color-yellow-light,
+            $color-yellow-dark
+          );
+        }
+        &-2 {
+          padding: 0.5rem 1rem;
+          background-image: linear-gradient(
+            to right,
+            $color-primary,
+            $color-secondary
+          );
+        }
+        &-3 {
+          padding: 0.5rem 1rem;
+          background-image: linear-gradient(
+            to right,
+            $color-blue-light,
+            $color-blue-dark
+          );
+        }
+      }
+
+      &_details {
+        ul {
+          list-style: none;
+          font-size: 1.6rem;
+          width: 80%;
+          margin: 0 auto;
+          text-align: center;
+          li {
+            padding: 1rem 0;
+            &:not(:last-child) {
+              border-bottom: 2px solid rgb(228, 227, 227);
+            }
+          }
+        }
+      }
+    }
+
+    &-back {
+      color: #fff;
+      text-align: center;
+      transform: rotateY(180deg);
+
+      &-only {
+        z-index: -2;
+        font-size: 2rem;
+        margin-top: 10rem;
+      }
+      .price {
+        font-size: 5rem;
+        font-weight: 800;
+      }
+      .btn-cta {
+        margin-top: 10rem;
+      }
+      &-1 {
+        background-image: linear-gradient(
+          to bottom right,
+          $color-yellow-light,
+          $color-yellow-dark
+        );
+      }
+      &-2 {
+        background-image: linear-gradient(
+          to bottom right,
+          $color-primary,
+          $color-secondary
+        );
+      }
+      &-3 {
+        background-image: linear-gradient(
+          to bottom right,
+          $color-blue-light,
+          $color-blue-dark
+        );
+      }
+    }
+  }
+
+  &:hover &_side {
+    transform: rotateY(180deg);
+  }
+  &:hover &_side-back {
+    transform: rotateY(0deg);
+  }
+
+  @include responsive(tablet-landscape) {
+    position: relative;
+    height: auto;
+    background: #fff;
+
+    &_side {
+      height: auto;
+      transition: 1s all ease;
+      position: static;
+      top: 0;
+      left: 0;
+      width: 100%;
+
+      box-shadow: none;
+
+      &_front {
+        z-index: 20;
+        &_img {
+          padding: 0;
+          height: 20rem;
+          background-blend-mode: screen;
+          clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+        }
+
+        &_heading {
+          top: 15%;
+        }
+      }
+
+      &-back {
+        clip-path: polygon(0 25%, 100% 0,  100% 100% , 0 100%);
+        transform: rotateY(0);
+
+        &-only {
+          padding-top: 4rem !important;
+          z-index: -2;
+          font-size: 2rem;
+          margin-top: 0;
+        }
+        .price {
+          font-size: 3.5rem;
+          font-weight: 800;
+        }
+        .btn-cta {
+          padding: 1rem 3rem;
+          margin-bottom: 4rem;
+          font-size: 2rem;
+          margin-top: 2rem;
+        }
+        &-1 {
+          background-image: linear-gradient(
+            to bottom right,
+            $color-yellow-light,
+            $color-yellow-dark
+          );
+        }
+        &-2 {
+          background-image: linear-gradient(
+            to bottom right,
+            $color-primary,
+            $color-secondary
+          );
+        }
+        &-3 {
+          background-image: linear-gradient(
+            to bottom right,
+            $color-blue-light,
+            $color-blue-dark
+          );
+        }
+      }
+    }
+
+    &:hover &_side {
+      transform: rotateY(0);
+    }
+    &:hover &_side-back {
+      transform: rotateY(0deg);
+    }
+  }
+}
